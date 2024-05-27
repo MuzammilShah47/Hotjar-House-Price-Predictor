@@ -1,8 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-.button {
-background-color: #23b83c;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict House Price</title>
+    <style>
+        .button {
+            background-color: #23b83c;
             border: 2px solid #020353;
             color: whitesmoke;
             padding: 0.5em 0.5em;
@@ -38,6 +42,18 @@ background-color: #23b83c;
             r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
             a.appendChild(r);
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <!-- Install this snippet AFTER the Hotjar Tracking code. -->
+    <script>
+        var userId = {{ user_id }} || null; // Replace with your dynamic user ID if available.
+        window.hj('identify', userId, {
+            // Add your own custom attributes here. Some EXAMPLES:
+            // 'Signed up': '2019-06-20T00:00:00Z', // Signup date in ISO-8601 format.
+            // 'Last purchase category': 'Electronics', // Send strings with quotes around them.
+            // 'Total purchases': 15, // Send numbers without quotes.
+            // 'Last purchase date': '2019-06-20T00:00:00Z', // Send dates in ISO-8601 format.
+            // 'Last refund date': null, // Send null when no value exists for a user.
+        });
     </script>
 </head>
 <body>
