@@ -1,53 +1,62 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-.button {
-background-color: #23b83c;
-	border: 2px solid #020353;
-	color: whitesmoke;
-	padding: 0.5em 0.5em;
-	text-align: center;
-	text-decoration: none;
-	font-size: 1em;
-	display: inline-block;
-	width: 18%;
-	border-radius: 5px;
-	box-shadow: 3px 3px 8px 0 #000; 
-}
-body {
-  background-image: url("{{url_for('static', filename='background.jpg')}}");
-  background-repeat: no-repeat;
- background-size: 100% 100%;
-}
-h1{
-   background-color: Green;
-  color: white;
-}
-h3{
-   background-color: green;
-  color: white;
-}
-
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict House Price</title>
+    <style>
+        .button {
+            background-color: #23b83c;
+            border: 2px solid #020353;
+            color: whitesmoke;
+            padding: 0.5em 0.5em;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1em;
+            display: inline-block;
+            width: 18%;
+            border-radius: 5px;
+            box-shadow: 3px 3px 8px 0 #000;
+        }
+        body {
+            background-image: url("{{ url_for('static', filename='background.jpg') }}");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        h1 {
+            background-color: Green;
+            color: white;
+        }
+        h3 {
+            background-color: green;
+            color: white;
+        }
+    </style>
+    <!-- Hotjar Tracking Code for https://hotjar-house-price-predictor.onrender.com/ -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:{{ hotjar_site_id }},hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
 </head>
 <body>
-<center>
-
-
-<h1>Predict House Price</h1>
-<pre>
-<form action="{{ url_for('predict')}}"method="post">
-
-<input type='text' name="area" placeholder="Area in sq. ft" required="required"/>
-
-
-<button type="submit" class="button">Predict Price</button>
-</form>
-<textarea>
-{{prediction_text}}
-</textarea>
-</pre>
-</center>
+    <center>
+        <h1>Predict House Price</h1>
+        <pre>
+            <form action="{{ url_for('predict') }}" method="post">
+                <input type='text' name="area" placeholder="Area in sq. ft" required="required"/>
+                <button type="submit" class="button">Predict Price</button>
+            </form>
+            <textarea>
+                {{ prediction_text }}
+            </textarea>
+        </pre>
+    </center>
 </body>
 </html>
+
